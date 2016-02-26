@@ -6,9 +6,9 @@ Two Artisan commands to aid deployment of Laravel applications in Microsoft Azur
 ## Backstory
 Deploying Laravel applications into Azure is a little bit of a dark art.
 
-There are [guides](http://blog.bobbyallen.me/2015/06/26/configuring-and-hosting-laravel-5-x-applications-on-windows-azure/) [http://stackoverflow.com/questions/32109245/deploy-laravel-to-azure](out there) on how to do it, but for me, the end result wasn't quite what I'd hoped for.
+There are [guides](http://blog.bobbyallen.me/2015/06/26/configuring-and-hosting-laravel-5-x-applications-on-windows-azure/) [out there](http://stackoverflow.com/questions/32109245/deploy-laravel-to-azure) on how to do it, but for me, the end result wasn't quite what I'd hoped for.
 
-What do I mean by that?  Well, I'm deploying my applications using (SyntaxC4's Composer Extension)[https://github.com/SyntaxC4-MSFT/ComposerExtension/], which is great.  However, two of the standard Laravel optimization commands that I like to include in my `composer.json` file were problematic:-
+What do I mean by that?  Well, I'm deploying my applications using [SyntaxC4's Composer Extension](https://github.com/SyntaxC4-MSFT/ComposerExtension/), which is great.  However, two of the standard Laravel optimization commands that I like to include in my `composer.json` file were problematic:-
 
 `php artisan optimize` *runs like a dog*.  I'm talking about half an hour to complete on a dual-core Azure instance, or *never* (read: over 24 hours before I killed it) finishing on a single-core instance, compared with a couple of second on my modest development box.  Worse still, the major time-consuming thing that the `php artisan optimize` command does is to run `composer dump-autoload -o`, which has *already been done* by the Composer Extension on Azure.
 
