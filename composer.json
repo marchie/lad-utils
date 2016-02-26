@@ -1,5 +1,5 @@
 {
-  "name": "marchie/laravel-azure-deployment-utilities",
+  "name": "marchie/lad-utils",
   "description": "Command line utilities for executing Composer post install commands when deploying Laravel applications in Azure",
   "keywords": ["laravel", "azure", "deployment", "post-install-cmd"],
   "license": "MIT",
