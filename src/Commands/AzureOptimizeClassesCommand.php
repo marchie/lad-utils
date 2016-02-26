@@ -45,6 +45,7 @@ class AzureOptimizeClassesCommand extends OptimizeCommand
         }
         else
         {
+            $this->warn('Debug mode is active: classes will not be compiled');
             $this->call('clear-compiled');
         }
     }
