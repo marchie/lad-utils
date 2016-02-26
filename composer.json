@@ -1,0 +1,38 @@
+{
+  "name": "marchie/laravel-azure-deployment-utilities",
+  "description": "Command line utilities for executing Composer post install commands when deploying Laravel applications in Azure",
+  "keywords": ["laravel", "azure", "deployment", "post-install-cmd"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Chris March",
+      "email": "Chris.March@tfgm.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/config": "~5.0",
+    "illuminate/support": "~5.0",
+    "laravel/framework": ">=5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "laravel/laravel": "^5.2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Marchie\\LaravelAzureDeploymentUtilities\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ],
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}
