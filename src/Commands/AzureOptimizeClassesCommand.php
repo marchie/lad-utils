@@ -49,10 +49,11 @@ class AzureOptimizeClassesCommand extends OptimizeCommand
         {
             $this->info('Compiling common classes');
             $this->compileClasses();
+            $this->info('Common classes compiled');
         }
         else
         {
-            $this->warn('Debug mode is active: classes will not be compiled');
+            $this->warn('Debug mode is active: classes not compiled');
             $this->call('clear-compiled');
         }
     }

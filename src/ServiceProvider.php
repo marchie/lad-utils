@@ -39,21 +39,16 @@ class ServiceProvider extends LaravelServiceProvider {
     public function provides()
     {
         return [
-            'command.azure.config-cache',
-            'command.azure.optimize-classes',
+            'command.azure.optimize-classes'
         ];
     }
 
     private function registerCommands()
     {
-        $this->app->singleton('command.azure.config-cache', function ($app) {
-            return new AzureConfigCacheCommand($app['files']);
-        });
-
         $this->app->singleton('command.azure.optimize-classes', function ($app) {
             return new AzureOptimizeClassesCommand($app['composer']);
         });
 
-        $this->commands('command.azure.config-cache', 'command.azure.optimize-classes');
+        $this->commands('command.azure.optimize-classes');
     }
 }
