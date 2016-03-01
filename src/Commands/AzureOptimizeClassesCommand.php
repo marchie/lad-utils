@@ -3,7 +3,6 @@
 namespace Marchie\LaravelAzureDeploymentUtilities\Commands;
 
 use Illuminate\Foundation\Console\OptimizeCommand;
-use Illuminate\Support\Composer;
 
 class AzureOptimizeClassesCommand extends OptimizeCommand
 {
@@ -26,9 +25,17 @@ class AzureOptimizeClassesCommand extends OptimizeCommand
      *
      * @return void
      */
-    public function __construct(Composer $composer)
+    public function __construct($composer)
     {
-        parent::__construct($composer);
+        switch ($class = get_class($composer))
+        {
+            case 'Illuminate\Support\Composer':
+            case 'Illuminate\Foundation\Composer':
+                parent::__construct($composer);
+                break;
+            default:
+                throw new \InvalidArgumentException('$composer must be an instance of Illuminate\Support\Composer or Illuminate\Foundation\Composer; ' . $class . ' provided');
+        }
     }
 
     /**
